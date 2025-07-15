@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorkIndia - Rabiya</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .login-box {
+      background: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #999;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #005fa3;
+    }
+
+    .site-content {
+      display: none;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      margin: 20px 0;
+    }
+
+    section {
+      display: none;
+      margin: 20px 0;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔐 Login Section -->
+  <div class="login-box" id="login-section">
+    <h2>Login</h2>
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter your name" required>
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter any password" required>
+
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- 🌐 Website Content -->
+  <div class="site-content" id="main-content">
+    <header>
+      <h1>Welcome to WorkIndia</h1>
+      <p>Offers technical professionals to work</p>
+    </header>
+
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('about')">About Me</a>
+      <a onclick="showSection('jobs')">Jobs</a>
+      <a onclick="showSection('contact')">Contact</a>
+      <a onclick="showSection('salary')">Salary</a>
+    </nav>
+
+    <section id="home">
+      <h2>Home</h2>
+      <p>Welcome to WorkIndia</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am Rabiya, the HR of WorkIndia.</p>
+    </section>
+
+    <section id="jobs">
+      <h2>Jobs</h2>
+      <p>
+        • Developing programs<br>
+        • MS Excel<br>
+        • MS Word<br>
+        • Programming languages like Python, C++, MySQL, Java
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can contact me on: <strong>rabiyasararabiyasara@gmail.com</strong></p>
+    </section>
+
+    <section id="salary">
+      <h2>Salary</h2>
+      <p>₹12,000 per month</p>
+    </section>
+
+    <footer>
+      <p>© 2025 Rabiya's Website</p>
+    </footer>
+  </div>
+
+  <!-- 💡 JavaScript -->
+  <script>
+    function login() {
+      var user = document.getElementById("username").value;
+      if (user.trim() !== "") {
+        alert("Welcome, " + user + "! Login Successful.");
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+        showSection('home'); // Show home section after login
+      } else {
+        alert("Please enter a username.");
+      }
+    }
+
+    function showSection(id) {
+      // Hide all sections
+      var sections = document.querySelectorAll("section");
+      sections.forEach(function(section) {
+        section.style.display = "none";
+      });
+
+      // Show the selected section
+      var selected = document.getElementById(id);
+      if (selected) {
+        selected.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
